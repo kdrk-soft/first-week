@@ -22,12 +22,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickCount"
-        android:text="плюс 1"
+        android:text="@string/plus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvResult"
         app:layout_constraintVertical_bias="0.3" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:visibility="invisible"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:src="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btCount"
+        app:layout_constraintTop_toTopOf="@+id/btCount"
+        tools:srcCompat="@color/colorPrimaryDark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

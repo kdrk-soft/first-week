@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Click Counter1</string>
+    <string name="plus">Плюс 1</string>
+    <string name="reset">Сбросить</string>
 </resources>
