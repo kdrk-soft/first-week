@@ -20,12 +20,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvResult;
-    public int counter = 0;
+
+    public static TextView tvResult;
+    public static int counter = 0;
 
     SharedPreferences sharedPreferences;
     private Animation anim;
     private ImageView viewAnim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         LoadInt();
+//        Bundle passedDate = getIntent().getExtras();
+//        if(passedDate != null){
+//            counter = passedDate.getInt("exit1");}
         tvResult.setText(Integer.toString(counter));
 
+    }
+
+    public void init(){
+        tvResult = findViewById(R.id.tvResult);
+        viewAnim = findViewById(R.id.imageView);
+        anim = AnimationUtils.loadAnimation(this, R.anim.mytrans);
     }
     public void SaveInt(String key, int counter){
 
@@ -47,13 +58,6 @@ public class MainActivity extends AppCompatActivity {
     public void LoadInt() {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         counter = sharedPreferences.getInt("key", counter);
-
-    }
-
-    public void init(){
-        tvResult = findViewById(R.id.tvResult);
-        viewAnim = findViewById(R.id.imageView);
-        anim = AnimationUtils.loadAnimation(this, R.anim.mytrans);
     }
 
     @Override
@@ -75,15 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
         counter++;
         tvResult.setText(Integer.toString(counter));
-        Toast toast = Toast.makeText(getApplicationContext(), "ещё", Toast.LENGTH_SHORT);
+        //Toast toast = Toast.makeText(getApplicationContext(), "ещё", Toast.LENGTH_SHORT);
         //toast.setGravity(Gravity.CENTER, 0,400);
-        toast.show();
+        //toast.show();
         viewAnim.startAnimation(anim);
 
-
-
-
     }
+
+
     @Override
     protected void onStop() {
         SaveInt("key", counter);

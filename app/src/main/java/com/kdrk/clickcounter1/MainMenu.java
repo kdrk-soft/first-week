@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static com.kdrk.clickcounter1.MainActivity.counter;
+import static com.kdrk.clickcounter1.MainActivity.tvResult;
+
 public class MainMenu extends Activity {
     private TextView  tvLarge;
     String count;
@@ -28,6 +31,10 @@ public class MainMenu extends Activity {
     }
 
     public void onClickReset(View view) {
+//        Intent i = new Intent(this, MainActivity.class);
+//        i.putExtra("exit1", 0);
+        counter = 0;
+        tvResult.setText("0");
         tvLarge.setText("0");
 
     }
